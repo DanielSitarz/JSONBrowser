@@ -1,0 +1,16 @@
+<h2>JSON:</h2>
+<div class="overflow-auto w-full">
+    <div *ngIf="(json$ | async) as json;">
+        <ngx-json-viewer *ngIf="hasAnyData(json)" [json]="json" [expanded]="false"></ngx-json-viewer>
+    </div>
+    <div
+        *ngIf="!(jsonGetter.isComplete$() | async) && !(jsonGetter.isPending$() | async) && !hasAnyData(json$ | async)">
+        Get some data first.
+    </div>
+    <div *ngIf="(jsonGetter.isComplete$() | async) && !hasAnyData(json$ | async)">
+        No results. Try to change date range.
+    </div>
+    <div *ngIf="(jsonGetter.isPending$() | async)">
+        Loading...
+    </div>
+</div>

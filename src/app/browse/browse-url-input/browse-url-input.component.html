@@ -1,0 +1,9 @@
+<section class="flex justify-center items-center">
+    <mat-form-field class="flex-1">
+        <mat-label>JSON URL</mat-label>
+        <input matInput type="text" [(ngModel)]="_url">
+    </mat-form-field>
+    <div class="inline ml-2">
+        <button mat-raised-button color="primary" (click)="submit()" [disabled]="dataProcessing">GET</button>
+    </div>
+</section>

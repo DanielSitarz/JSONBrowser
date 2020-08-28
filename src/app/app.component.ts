@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { routeAnimations } from './app-routing-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    routeAnimations
+  ]
 })
 export class AppComponent {
-  title = 'Angular';
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  }
 }

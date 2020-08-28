@@ -1,0 +1,13 @@
+<div class="h-full w-full flex flex-col items-center p-2 pt-4 pb-4">
+    <app-browse-control class="w-full"></app-browse-control>
+
+    <div id="plan-outlet-wrap" class="relative h-full w-full p-4 mb-2 overflow-hidden"
+        [@browseRouteAnimations]="prepareRoute(o)">
+        <div class="relative">
+            <router-outlet #o="outlet"></router-outlet>
+        </div>
+    </div>
+    <div class="w-full fixed bottom-0">
+        <app-browse-menu></app-browse-menu>
+    </div>
+</div>

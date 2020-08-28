@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class JsonGetterService {
   requestStatus$: BehaviorSubject<RequestStatus> = new BehaviorSubject<RequestStatus>(RequestStatus.Idle);
-  json$: BehaviorSubject<string> = new BehaviorSubject<string>("");
+  json$: BehaviorSubject<object[]> = new BehaviorSubject<object[]>([]);
 
   constructor(private http: HttpClient) {
 
@@ -40,7 +40,7 @@ export class JsonGetterService {
       body,
       httpOptions
     ).pipe(take(1)).subscribe(
-      (json: string) => {
+      (json: object[]) => {
         this.json$.next(json);
         this.requestStatus$.next(RequestStatus.Complete);
       },
